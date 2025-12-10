@@ -264,7 +264,7 @@ def test(args: argparse.Namespace, test_all_meta: dict) -> None:
                 args.result_dir,
                 args.action_space,
                 args.observation_type,
-                args.model,
+                args.model.split(':')[-0]+'-'+args.model.split(':')[-1],
                 domain,
                 example_id,
             )
@@ -382,7 +382,7 @@ if __name__ == "__main__":
         args.result_dir,
         args.action_space,
         args.observation_type,
-        args.model,
+        args.model.split(':')[-0]+'-'+args.model.split(':')[-1],
         "args.json",
     )
     os.makedirs(os.path.dirname(path_to_args), exist_ok=True)
